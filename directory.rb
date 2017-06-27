@@ -1,7 +1,7 @@
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-  #create a student array
+  #create a students array
   students = []
   #collect name
   name = gets.chomp.capitalize
@@ -24,11 +24,18 @@ def print_header
 end
 
 def print_students (students)
-  students.each_with_index do |student, index|
-    if student[:name].length < 12
-      puts "#{index+1}. #{student [:name]} (#{student [:cohort]} cohort)"
-    end
+  index = 0
+  until index >= students.count
+    student = students [index]
+    puts "#{student [:name]} (#{student [:cohort]} cohort)"
+    index = index+1
   end
+
+  #students.each_with_index do |student, index|
+  #  if student[:name].length < 12
+  #    puts "#{index+1}. #{student [:name]} (#{student [:cohort]} cohort)"
+  #  end
+  #end
 end
 
 def print_footer (adults)
