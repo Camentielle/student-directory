@@ -14,7 +14,4 @@ puts "The Joker"
 puts "Joffrey Baratheon"
 puts "Norman Bates"
 #total of students
-print "Overall we have "
-#add variable
-print student_count
-print " great students\n"
+print "Overall we have #{student_count} great students\n"
