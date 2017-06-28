@@ -5,6 +5,7 @@ def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
   puts "3. Save the list to students.csv"
+  puts "4. load the list from students.csv"
   puts "9. Exit"
 end
 
@@ -53,6 +54,8 @@ def process(selection)
    show_students
   when "3"
     save_students
+  when "4"
+    load_students
   when "9"
    exit # this will cause the program to terminate
   else
@@ -79,4 +82,18 @@ def save_students
   end
   file.close
 end
+
+def load_students (filename = "students.csv")
+  # open csv file in read only mode
+  file = File.open(filename,"r")
+  # read content line per line
+  file.readlines.each do |line|
+  # convert list of students into righ format
+  name, cohort = line.chomp.split (",")
+  @students << {name: name, cohort: cohort.to_sym}
+  end
+  file.close
+end
+
+load_students # will load from students.csv by default
 interactive_menu
